@@ -17,5 +17,16 @@ $(function () {
       $(this).addClass("future");
     }
   });
-});
+  // Event listener for save button
+  $(".saveBtn").on("click", function () {
+    // Find the associated textarea and its event id
+    var textarea = $(this).siblings("textarea");
+    var eventId = textarea.attr("id");
 
+    // Get the entered event text
+    var eventText = textarea.val().trim();
+
+    // Save the event text to local storage for the specific block
+    localStorage.setItem(eventId, eventText);
+  });
+});
