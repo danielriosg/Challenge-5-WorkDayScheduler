@@ -29,4 +29,14 @@ $(function () {
     // Save the event text to local storage for the specific block
     localStorage.setItem(eventId, eventText);
   });
+  // Populate textarea from saved event
+  $(".time-block").each(function () {
+    var textarea = $(this).find("textarea");
+    var eventId = textarea.attr("id");
+    var savedEvent = localStorage.getItem(eventId);
+
+    if (savedEvent) {
+      textarea.val(savedEvent);
+    }
+  });
 });
